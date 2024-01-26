@@ -5,7 +5,6 @@ import RegistrationForm from './components/RegisterForm';
 function App() {
   return (
     <>
-      <LoginForm />
       <RegistrationForm />
     </>
   )

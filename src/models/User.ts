@@ -15,27 +15,27 @@ export class User {
         this.phoneNumber = phoneNumber;
     }
 
-    getId(): number {
+    public getId(): number {
         return this.id;
     }
 
-    getFirstName(): string {
+    public getFirstName(): string {
         return this.firstName;
     }
 
-    getLastName(): string {
+    public getLastName(): string {
         return this.lastName;
     }
 
-    getEmail(): string {
+    public getEmail(): string {
         return this.email;
     }
 
-    getPassword(): string {
+    public getPassword(): string {
         return this.password;
     }
 
-    getPhoneNumber(): string {
+    public getPhoneNumber(): string {
         return this.phoneNumber;
     }
 }
