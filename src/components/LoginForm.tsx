@@ -11,7 +11,6 @@ const LoginForm: React.FC = () => {
             const user = await login(email, password);
             console.log(user);
         } catch (error) {
-            console.log("gowno")
             console.error(error);
         }
     };

@@ -38,7 +38,7 @@
       "startDate": "2023-11-27",
       "userId": 2,
       "servicemanId": 1,
-      "endDate": "2023-12-17T13:02:16.434Z"
+      "endDate": "2023-11-27"
     },
     {
       "id": 3,
@@ -49,7 +49,7 @@
       "startDate": "2023-11-30",
       "userId": 2,
       "servicemanId": 1,
-      "endDate": "2023-12-17T13:14:27.171Z"
+      "endDate": "2023-11-30"
     }
   ],
   "clients": [

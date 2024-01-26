@@ -23,13 +23,23 @@ export class Report {
         this.userId = userId;
     }
 
+    static fromObject(object: any): Report {
+        const report = new Report(object.description, object.priority, object.status, new Date(object.startDate), object.userId);
+
+        if (object.endDate) {
+            report.setEndDate(new Date(object.endDate));
+        }
+
+        return report;
+    }
+
     getReportId(): number {
         return this.id;
     }
+
     getUserId(): number {
         return this.id;
     }
-
 
     getDescription(): string {
         return this.description;
