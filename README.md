@@ -16,14 +16,14 @@
 W sumie za projekt można uzyskać 20 23pkt (185pkt za implementację+1pkt za prezentację aplikacji i 1 pkt za estetyczny wygląd, 3 pkt za prezentację postępów zgodność z wymaganiami dostępności: struktura, kontrast,kolejność, atrybuty HTML, itp. - co najmniej 14 punktów w Kwestionariuszu dostępności cyfrowej https://cez2.wi.pb.edu.pl/moodle/mod/quiz/view.php?id=53594).
 
 ## Dokumentacja projektu:
-a) architektura komponentów, przekazywane właściwości i metody
-b) ścieżki i komponenty związane z routigniem
-c) [dane w store+które komponenty korzystają]
-d) API serwera
-e) wybrane przez autorów, szczególnie ciekawe fragmenty kodu
-f) wypunktowane elementy techniczne, które zostały zrealizowane w projekcie wraz z krótkim komentarzem odnośnie realizacji: jak zrealizowano i w którym pliku
-g) [Dodatkowe biblioteki użyte w aplikacji: link oraz zdanie opisu biblioteki i celu użycia].
-h) Podział pracy w zespole
+- architektura komponentów, przekazywane właściwości i metody
+- ścieżki i komponenty związane z routigniem
+- [dane w store+które komponenty korzystają]
+- API serwera
+- wybrane przez autorów, szczególnie ciekawe fragmenty kodu
+- wypunktowane elementy techniczne, które zostały zrealizowane w projekcie wraz z krótkim komentarzem odnośnie realizacji: jak zrealizowano i w którym pliku
+- [Dodatkowe biblioteki użyte w aplikacji: link oraz zdanie opisu biblioteki i celu użycia].
+- Podział pracy w zespole
 
 
 # React + TypeScript + Vite
