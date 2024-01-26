@@ -1,67 +1,98 @@
+import { Client } from '../models/Client';
+import { Serviceman } from '../models/Serviceman';
+
 const SERVICEMEN_API_URL = 'http://localhost:3000/servicemen';
 const CLIENTS_API_URL = 'http://localhost:3000/clients';
 
-export const login = async (email: string, password: string) => {
-    try {
-        const response = await fetch(`${CLIENTS_API_URL}?email=${email}&password=${password}`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
-
-        if (!response.ok) {
-            throw new Error('Login failed');
+export const login = async (email: string, password: string): Promise<Client | Serviceman> => {
+    const response = await fetch(`${CLIENTS_API_URL}?email=${email}&password=${password}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
         }
+    });
 
-        const user = await response.json();
-
-        if (!user) {
-            throw new Error('User does not exist');
+    if (response.ok) {
+        const client = await response.json();
+        if (Object.keys(client).length > 0) {
+            return client;
         }
-
-        return user;
-    } catch (error) {
-        console.error(error);
-        throw error;
     }
+
+    const servicemenResponse = await fetch(`${SERVICEMEN_API_URL}?email=${email}&password=${password}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+
+    if (servicemenResponse.ok) {
+        const servicemen = await servicemenResponse.json();
+        if (Object.keys(servicemen).length > 0) {
+            return servicemen;
+        }
+    }
+
+    throw new Error('Login failed: User does not exist');
 };
 
-export const register = async (email: string, firstName: string, lastName: string, phoneNumber: string, password: string) => {
+export const register = async (newClient: Client): Promise<Client> => {
     try {
-        console.log(email, firstName, lastName, phoneNumber, password);
-        const response = await fetch(`${CLIENTS_API_URL}?email=${email}`, {
+        const clientResponse = await fetch(`${CLIENTS_API_URL}?email=${newClient.getEmail()}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
             }
         });
 
-        if (!response.ok) {
+        if (!clientResponse.ok) {
             throw new Error("Registration failed");
         }
 
-        const user = await response.json();
+        const clientUser = await clientResponse.json();
 
-        if (Object.keys(user).length > 0) {
+        if (Object.keys(clientUser).length > 0) {
             throw new Error('User already exists');
         } else {
-            const registerResponse = await fetch(`${CLIENTS_API_URL}`, {
-                method: 'POST',
+            const servicemenResponse = await fetch(`${SERVICEMEN_API_URL}?email=${newClient.getEmail()}`, {
+                method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ email, firstName, lastName, phoneNumber, password })
+                }
             });
 
-            if (!registerResponse.ok) {
-                throw new Error('Registration failed');
+            if (!servicemenResponse.ok) {
+                throw new Error("Registration failed");
             }
 
-            return registerResponse.json();
+            const servicemenUser = await servicemenResponse.json();
+
+            if (Object.keys(servicemenUser).length > 0) {
+                throw new Error('User already exists');
+            } else {
+                const newClientData = {
+                    firstName: newClient.getFirstName(),
+                    lastName: newClient.getLastName(),
+                    email: newClient.getEmail(),
+                    password: newClient.getPassword(),
+                    phoneNumber: newClient.getPhoneNumber()
+                };
+
+                const registerResponse = await fetch(`${CLIENTS_API_URL}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(newClientData)
+                });
+
+                if (!registerResponse.ok) {
+                    throw new Error('Registration failed');
+                }
+
+                return registerResponse.json();
+            }
         }
-
-
     } catch (error) {
         console.error(error);
         throw error;
