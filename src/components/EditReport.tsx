@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getReport, updateReport } from '../services/ReportService';
 import { Status } from '../models/Status';
+import { Log } from '../models/Log';
+import { addLog } from '../services/LogService';
 
 const EditReport = () => {
   const navigate = useNavigate();
@@ -41,6 +43,9 @@ const EditReport = () => {
     try {
       await updateReport(Number(reportid), report);
       console.log(currentReport.startDate.toString());
+      const log = new Log(currentReport.id, report.status, report.price, new Date());
+      addLog(log);
+      
       navigate('/reports');
     } catch (error) {
       console.error('Error updating report:', error);
