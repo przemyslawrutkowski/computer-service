@@ -1,37 +1,42 @@
 import { Status } from "./Status";
 
-export class Log{
-    private static idCounter: number = 0;
-    private id: number;
-    private reportId: number;
+export class Log {
+    private id: string;
+    private reportId: string;
     private status: Status;
     private price: number;
     private logDate: Date;
-    constructor(reportId: number, status: Status, price: number, logDate: Date){
-        this.id = Log.idCounter++;
+
+    constructor(reportId: string, status: Status, price: number, logDate: Date) {
+        this.id = "";
         this.reportId = reportId;
         this.status = status;
         this.price = price;
         this.logDate = logDate;
     }
     static fromObject(object: any): Log {
-        return new Log(object.reportId,object.status,object.price,object.logDate);
+        const log = new Log(object.reportId, object.status, object.price, new Date(object.logDate));
+        log.setId(object.id);
+        return log;
     }
 
 
-    getId(): number{
+    getId(): string {
         return this.id;
     }
-    getReportId(): number{
+    setId(id: string): void {
+        this.id = id;
+    }
+    getReportId(): string {
         return this.reportId;
     }
-    getStatus(): Status{
+    getStatus(): Status {
         return this.status;
     }
-    getPrice(): number{
+    getPrice(): number {
         return this.price;
     }
-    getLogDate(): Date{
+    getLogDate(): Date {
         return this.logDate;
     }
 }

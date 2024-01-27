@@ -9,10 +9,10 @@ export class Report {
     private price?: number;
     private startDate: Date;
     private endDate?: Date;
-    private userId: number;
-    private servicemanId?: number;
+    private userId: string;
+    private servicemanId?: string;
 
-    constructor(description: string, priority: Priority, status: Status, startDate: Date, userId: number) {
+    constructor(description: string, priority: Priority, status: Status, startDate: Date, userId: string) {
         this.id = "";
         this.description = description;
         this.priority = priority;
