@@ -13,9 +13,10 @@ export const login = async (email: string, password: string): Promise<Client | S
     });
 
     if (response.ok) {
-        const client = await response.json();
-        if (Object.keys(client).length > 0) {
-            return client;
+        const clientArray = await response.json();
+        if (clientArray.length > 0) {
+            const client = clientArray[0];
+            return Client.fromJson(client);
         }
     }
 
@@ -27,9 +28,10 @@ export const login = async (email: string, password: string): Promise<Client | S
     });
 
     if (servicemenResponse.ok) {
-        const servicemen = await servicemenResponse.json();
-        if (Object.keys(servicemen).length > 0) {
-            return servicemen;
+        const servicemenArray = await servicemenResponse.json();
+        if (servicemenArray.length > 0) {
+            const serviceman = servicemenArray[0];
+            return Serviceman.fromJson(serviceman);
         }
     }
 

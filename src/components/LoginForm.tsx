@@ -13,8 +13,8 @@ const LoginForm: React.FC = () => {
 		e.preventDefault()
 		try {
 			const user = await login(email, password)
-			navigation('/reports')
 			console.log(user)
+			navigation('/reports')
 		} catch (error) {
 			console.error(error)
 		}
