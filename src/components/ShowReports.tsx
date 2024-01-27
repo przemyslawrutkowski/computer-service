@@ -56,7 +56,7 @@ const ShowReports = () => {
 			<h3>Reports List</h3>
 			<FilterReports onFilterChange={handleFilterChange} />
 			<ReportsTable reports={reports} />
-			<button className="addReport">
+			<button className="newReport">
 				<a href="/addReport">New Report</a>
 			</button>
 			<button className="showlogs">

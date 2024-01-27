@@ -64,7 +64,7 @@ td {
 	text-align: center;
 }
 
-.reports .addReport {
+.reports .newReport {
 	position: absolute;
 	left: 30px;
 	top: 30px;
@@ -81,7 +81,7 @@ td {
 	border: 3px solid rgb(211, 168, 252);
 }
 
-.reports button.addReport:hover {
+.reports button.newReport:hover {
 	background-color: rgb(50, 202, 114);
 	border: 3px solid rgb(50, 202, 114);
 }
