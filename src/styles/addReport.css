@@ -1,0 +1,82 @@
+.addReport {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 400px;
+	min-height: 400px;
+	transform: translate(-50%, -50%);
+	background-color: rgba(0, 0, 0, 0.9);
+	border-radius: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	overflow: scroll;
+}
+
+.addReport .addDetails {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.addReport form {
+	margin: 10px;
+}
+
+.addReport div {
+	margin: 10px;
+}
+
+.addReport textarea,
+select {
+	margin: 10px;
+	text-align: center;
+	border: none;
+	border-radius: 20px;
+	width: 140px;
+	height: 30px;
+	font-size: 15px;
+	letter-spacing: 1px;
+	font-family: 'Poppins', sans-serif;
+}
+
+.addReport textarea {
+	text-align: left;
+	resize: none;
+	padding: 10px;
+	width: 300px;
+	height: 100px;
+}
+
+.addReport h3 {
+	letter-spacing: 2px;
+	color: bisque;
+	margin-top: 30px;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.addReport .err {
+	margin-top: 5px;
+	color: rgb(234, 43, 81);
+}
+
+.addReport button {
+	text-decoration: none;
+	background: none;
+	border-radius: 20px;
+	border: 3px solid aliceblue;
+	padding: 10px;
+	font-weight: bold;
+	color: aliceblue;
+	transition: 0.4s;
+	font-size: 14px;
+	margin-bottom: 30px;
+}
+
+.addReport button:hover {
+	background: aliceblue;
+	color: black;
+	cursor: pointer;
+}
