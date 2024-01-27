@@ -41,8 +41,12 @@ const AddReport = () => {
 		try {
 			if (validateForm()) {
 				const local = new UserLocalStorage()
-				const repo = new Report(report.description, report.priority, Status.new, new Date(), local.getUserId())
-				await createReport(repo)
+				const userdata = local.getUserData();
+				if(userdata != null ){
+					const repo = new Report(report.description, report.priority, Status.new, new Date(), userdata.userId.toString())
+					await createReport(repo)
+
+				}
 				navigate('/reports')
 			}
 		} catch (error) {

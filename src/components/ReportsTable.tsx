@@ -3,9 +3,12 @@ import { Report } from '../models/Report';
 
 interface ReportsTableProps {
     reports: Report[];
+    isServiceman: boolean;
+    servicemanId: number;
+    handleTakeReportClick: (reportId: string) => void;
 }
 
-const ReportsTable: React.FC<ReportsTableProps> = ({ reports }) => {
+const ReportsTable: React.FC<ReportsTableProps> = ({ reports, isServiceman, servicemanId, handleTakeReportClick   }) => {
     return (
         <table border={1}>
             <thead>
@@ -18,7 +21,10 @@ const ReportsTable: React.FC<ReportsTableProps> = ({ reports }) => {
                     <th>Start Date</th>
                     <th>End Date</th>
                     <th>User ID</th>
-                    <th>Edit</th>
+                    
+                    {isServiceman && (
+                        <th>Edit</th>
+                    )}
                 </tr>
             </thead>
             <tbody>
@@ -36,12 +42,26 @@ const ReportsTable: React.FC<ReportsTableProps> = ({ reports }) => {
                                 return endDate ? new Date(endDate).toLocaleString('pl-PL') : 'Brak daty'
                             })()}
                         </td>
-                        <td>{report.getUserId()}</td>
-                        <td>
-                            <button>
-                                <Link to={`/edit/${report.getReportId()}`}>Edit</Link>
-                            </button>
-                        </td>
+                        <td>{servicemanId.toString()}</td>
+                        
+
+                        {isServiceman && (
+                            <td>
+                                {report.getServicemanId()?.toString() == servicemanId.toString() && (
+                                    <button>
+                                        <Link to={`/edit/${report.getReportId()}`}>Edit</Link>
+                                    </button>
+                                )}
+                                {!report.getServicemanId() && report.getServicemanId()?.toString() != servicemanId.toString() &&  (
+                                    <button onClick={() => handleTakeReportClick(report.getReportId())}>
+                                        Take report
+                                    </button>
+                                )}
+                            </td>
+                        )}
+
+
+                        
                     </tr>
                 ))}
             </tbody>

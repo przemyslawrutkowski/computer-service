@@ -32,9 +32,24 @@ export class Report {
         return report;
     }
 
+    getServicemanId(){
+        return this.servicemanId;
+    }
+    setServicemanId(id: string){
+        console.log(id)
+        console.log(id)
+        console.log(id)
+        console.log(id)
+        console.log(id)
+        console.log(id)
+        console.log(id)
+        this.servicemanId = id;
+    }
+
     getReportId(): string {
         return this.id;
     }
+    
 
     setReportId(id: string): void {
         this.id = id;

@@ -1,24 +1,23 @@
 export class UserLocalStorage {
     private storageKey: string = "logged_user";
   
-    constructor() {
-    }
+    constructor() {}
   
-    getUserId(): number | null {
+    getUserData(): { userId: number; isServiceman: boolean } | null {
       const userData = localStorage.getItem(this.storageKey);
       if (userData) {
-        const parsedData = JSON.parse(userData);
-        return parsedData.id || null;
+        return JSON.parse(userData);
       }
       return null;
     }
   
-    setUserId(userId: number): void {
-      const userData = JSON.stringify({ id: userId });
+    setUserData(userId: number, isServiceman: boolean): void {
+      const userData = JSON.stringify({ userId, isServiceman });
       localStorage.setItem(this.storageKey, userData);
     }
   
-    clearUserId(): void {
+    clearUserData(): void {
       localStorage.removeItem(this.storageKey);
     }
   }
+  

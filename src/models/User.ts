@@ -1,12 +1,12 @@
 export class User {
-    protected id: number;
+    protected id: string;
     protected firstName: string;
     protected lastName: string;
     protected email: string;
     protected password: string;
     protected phoneNumber: string;
 
-    constructor(id: number, firstName: string, lastName: string, email: string, password: string, phoneNumber: string) {
+    constructor(id: string, firstName: string, lastName: string, email: string, password: string, phoneNumber: string) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -15,7 +15,7 @@ export class User {
         this.phoneNumber = phoneNumber;
     }
 
-    public getId(): number {
+    public getId(): string {
         return this.id;
     }
 

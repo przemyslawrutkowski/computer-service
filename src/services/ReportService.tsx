@@ -1,28 +1,50 @@
 const REPORTS_API_URL = 'http://localhost:3000/reports';
 import { Status } from "../models/Status";
+import { UserLocalStorage } from "./UserLocalStorage";
 
 
 
 export const getReports = async () => {
   try {
-    const response = await fetch(REPORTS_API_URL, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+    const userLocalStorage = new UserLocalStorage();
+    const userData = userLocalStorage.getUserData();
 
-    if (!response.ok) {
-      throw new Error('Failed to fetch reports');
+    if (userData && !userData.isServiceman) {
+      const userId = userData.userId;
+      const response = await fetch(`${REPORTS_API_URL}?userId=${userId}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to fetch reports');
+      }
+
+      const reports = await response.json();
+      return reports;
+    } else {
+      const response = await fetch(REPORTS_API_URL, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to fetch reports');
+      }
+
+      const reports = await response.json();
+      return reports;
     }
-
-    const reports = await response.json();
-    return reports;
   } catch (error) {
     console.error(error);
     throw error;
   }
 };
+
 
 export const createReport = async (reportData: any) => {
   try {
@@ -46,7 +68,8 @@ export const createReport = async (reportData: any) => {
   }
 };
 
-export const getReport = async (reportid: number) => {
+export const getReport = async (reportid: string) => {
+  
     try {
       const response = await fetch(`${REPORTS_API_URL}/${reportid}`, {
         method: 'GET',
@@ -67,7 +90,7 @@ export const getReport = async (reportid: number) => {
     }
   };
   
-  export const updateReport = async (reportid: number, updatedData: any) => {
+  export const updateReport = async (reportid: string, updatedData: any) => {
     try {
       if (updatedData.status === Status.solved) {
         updatedData.endDate = new Date();
@@ -93,3 +116,4 @@ export const getReport = async (reportid: number) => {
       throw error;
     }
   };
+

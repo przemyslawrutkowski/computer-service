@@ -18,12 +18,15 @@ const EditReport = () => {
 	useEffect(() => {
 		const fetchReport = async () => {
 			try {
-				const fetchedReport = await getReport(Number(reportid))
-				setCurrentReport(fetchedReport)
-				setReport({
+				if(reportid){
+					const fetchedReport = await getReport(reportid)
+					setCurrentReport(fetchedReport)
+					setReport({
 					price: fetchedReport.price || 0,
 					status: fetchedReport.status || Status.new,
 				})
+				}
+				
 			} catch (error) {
 				console.error('Error fetching report:', error)
 			}
@@ -42,12 +45,14 @@ const EditReport = () => {
 
 	const handleUpdateReport = async () => {
 		try {
-			await updateReport(Number(reportid), report)
-			console.log(currentReport.startDate.toString())
-			const log = new Log(currentReport.id, report.status, report.price, new Date())
-			addLog(log)
-
-			navigate('/reports')
+			if(reportid){
+				await updateReport(reportid, report)
+				console.log(currentReport.startDate.toString())
+				const log = new Log(currentReport.id, report.status, report.price, new Date())
+				addLog(log)
+				navigate('/reports')
+			}
+			
 		} catch (error) {
 			console.error('Error updating report:', error)
 		}

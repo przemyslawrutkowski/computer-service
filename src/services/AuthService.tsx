@@ -100,3 +100,36 @@ export const register = async (newClient: Client): Promise<Client> => {
         throw error;
     }
 };
+
+export const getUserById = async (id: string): Promise<Client | Serviceman | null> => {
+    try {
+        const clientResponse = await fetch(`${CLIENTS_API_URL}/${id}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (clientResponse.ok) {
+            const client = await clientResponse.json();
+            return Client.fromJson(client);
+        }
+
+        const servicemanResponse = await fetch(`${SERVICEMEN_API_URL}/${id}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (servicemanResponse.ok) {
+            const serviceman = await servicemanResponse.json();
+            return Serviceman.fromJson(serviceman);
+        }
+
+        return null;
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+};
