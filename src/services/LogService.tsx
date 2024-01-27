@@ -46,7 +46,7 @@ export const addLog = async (log: Log): Promise<Log> => {
   }
 };
 
-export const deleteLog = async (logId: number): Promise<void> => {
+export const deleteLog = async (logId: string): Promise<void> => {
   try {
     const response = await fetch(`${LOGS_API_URL}/${logId}`, {
       method: 'DELETE',
