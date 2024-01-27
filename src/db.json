@@ -1,145 +1,145 @@
 {
-  "servicemen": [
-    {
-      "id": "1",
-      "firstName": "Jenny",
-      "lastName": "White",
-      "email": "f@gmail.com",
-      "password": "f",
-      "phoneNumber": "999"
-    },
-    {
-      "id": "2",
-      "firstName": "Conor",
-      "lastName": "McGregor",
-      "email": "h@gmail.com",
-      "password": "h",
-      "phoneNumber": "998"
-    }
-  ],
-  "reports": [
-    {
-      "id": "1",
-      "description": "Opis raportu 1",
-      "priority": "Normal",
-      "status": "Assigned",
-      "price": "1000",
-      "startDate": "2023-11-27T00:00:00.000Z",
-      "userId": 2,
-      "servicemanId": "1",
-      "endDate": ""
-    },
-    {
-      "id": "2",
-      "description": "Opis raportu 2",
-      "priority": "Normal",
-      "status": "Solved",
-      "price": 123,
-      "startDate": "2023-11-27",
-      "userId": 2,
-      "servicemanId": 1,
-      "endDate": "2023-11-27"
-    },
-    {
-      "id": "3",
-      "description": "Opis raportu 3",
-      "priority": "Normal",
-      "status": "Solved",
-      "price": 110.7,
-      "startDate": "2023-11-30",
-      "userId": 2,
-      "servicemanId": 1,
-      "endDate": "2023-11-30"
-    },
-    {
-      "id": "4",
-      "description": "Opis raportu 3f asdas dasd asd asd asda dad addasd asd asd asda dad addasd asd asd asda dad addasd asd asd asda dad ad",
-      "priority": "Normal",
-      "status": "In Realization",
-      "price": "-1",
-      "startDate": "2023-11-30",
-      "userId": 2,
-      "servicemanId": 1,
-      "endDate": ""
-    },
-    {
-      "id": "TTO42p2",
-      "description": ".editReport .err {\n\tmargin-top: 5px;\n\tcolor: rgb(234, 43, 81);\n}\nspoko jest ogoleni xd",
-      "priority": "Normal",
-      "status": "New",
-      "startDate": "2024-01-27T18:24:58.459Z",
-      "userId": "1"
-    }
-  ],
-  "clients": [
-    {
-      "id": "1",
-      "firstName": "John",
-      "lastName": "Doe",
-      "email": "a@gmail.com",
-      "password": "a",
-      "phoneNumber": "997"
-    },
-    {
-      "id": "2",
-      "firstName": "Bob",
-      "lastName": "Simp",
-      "email": "b@gmail.com",
-      "password": "b",
-      "phoneNumber": "112"
-    },
-    {
-      "id": "4499",
-      "firstName": "c",
-      "lastName": "c",
-      "email": "c@gmail.com",
-      "password": "c",
-      "phoneNumber": "555"
-    },
-    {
-      "firstName": "Asd",
-      "lastName": "Asd",
-      "email": "a@gmail.pl",
-      "password": "asdasd",
-      "phoneNumber": "123123213",
-      "id": "i1foE_m"
-    }
-  ],
-  "Logs": [
-    {
-      "id": "1",
-      "reportId": 2,
-      "status": "In Realization",
-      "price": "12123",
-      "logDate": "2024-01-26T22:26:45.237Z"
-    },
-    {
-      "id": "2",
-      "reportId": 1,
-      "status": "In Realization",
-      "price": "1112",
-      "logDate": "2024-01-26T22:26:58.073Z"
-    },
-    {
-      "id": "UJ50Y4x",
-      "reportId": "4",
-      "status": "In Realization",
-      "price": "-1",
-      "logDate": "2024-01-27T17:56:19.191Z"
-    },
-    {
-      "id": "4nYDRiq",
-      "reportId": "1",
-      "status": "Assigned",
-      "price": "1111",
-      "logDate": "2024-01-27T18:11:24.722Z"
-    },
-    {
-      "id": "Jxvjqi_",
-      "reportId": "1",
-      "status": "Assigned",
-      "price": "1000",
-      "logDate": "2024-01-27T18:12:20.842Z"
-    }
-  ]
+	"servicemen": [
+		{
+			"id": "1",
+			"firstName": "Jenny",
+			"lastName": "White",
+			"email": "f@gmail.com",
+			"password": "f",
+			"phoneNumber": "999"
+		},
+		{
+			"id": "2",
+			"firstName": "Conor",
+			"lastName": "McGregor",
+			"email": "h@gmail.com",
+			"password": "h",
+			"phoneNumber": "998"
+		}
+	],
+	"reports": [
+		{
+			"id": "1",
+			"description": "Opis raportu 1",
+			"priority": "Normal",
+			"status": "Assigned",
+			"price": "1000",
+			"startDate": "2023-11-27T00:00:00.000Z",
+			"userId": 2,
+			"endDate": ""
+		},
+		{
+			"id": "2",
+			"description": "Opis raportu 2",
+			"priority": "Normal",
+			"status": "Solved",
+			"price": 123,
+			"startDate": "2023-11-27T00:00:00.000Z",
+			"userId": 2,
+			"endDate": "2024-01-27T20:09:35.998Z"
+		},
+		{
+			"id": "3",
+			"description": "Opis raportu 3",
+			"priority": "Normal",
+			"status": "Solved",
+			"price": 110.7,
+			"startDate": "2023-11-30T00:00:00.000Z",
+			"userId": 2,
+			"endDate": "2024-01-27T20:09:37.773Z",
+			"servicemanId": "1"
+		},
+		{
+			"id": "4",
+			"description": "Opis raportu 3f asdas dasd asd asd asda dad addasd asd asd asda dad addasd asd asd asda dad addasd asd asd asda dad ad",
+			"priority": "Normal",
+			"status": "In Realization",
+			"price": "-1",
+			"startDate": "2023-11-30T00:00:00.000Z",
+			"userId": 2,
+			"endDate": "",
+			"servicemanId": "1"
+		},
+		{
+			"id": "TTO42p2",
+			"description": ".editReport .err {\n\tmargin-top: 5px;\n\tcolor: rgb(234, 43, 81);\n}\nspoko jest ogoleni xd",
+			"priority": "Normal",
+			"status": "New",
+			"startDate": "2024-01-27T18:24:58.459Z",
+			"userId": "1",
+			"endDate": "",
+			"servicemanId": "1"
+		}
+	],
+	"clients": [
+		{
+			"id": "1",
+			"firstName": "John",
+			"lastName": "Doe",
+			"email": "a@gmail.com",
+			"password": "a",
+			"phoneNumber": "997"
+		},
+		{
+			"id": "2",
+			"firstName": "Bob",
+			"lastName": "Simp",
+			"email": "b@gmail.com",
+			"password": "b",
+			"phoneNumber": "112"
+		},
+		{
+			"id": "4499",
+			"firstName": "c",
+			"lastName": "c",
+			"email": "c@gmail.com",
+			"password": "c",
+			"phoneNumber": "555"
+		},
+		{
+			"firstName": "Asd",
+			"lastName": "Asd",
+			"email": "a@gmail.pl",
+			"password": "asdasd",
+			"phoneNumber": "123123213",
+			"id": "i1foE_m"
+		}
+	],
+	"Logs": [
+		{
+			"id": "1",
+			"reportId": 2,
+			"status": "In Realization",
+			"price": "12123",
+			"logDate": "2024-01-26T22:26:45.237Z"
+		},
+		{
+			"id": "2",
+			"reportId": 1,
+			"status": "In Realization",
+			"price": "1112",
+			"logDate": "2024-01-26T22:26:58.073Z"
+		},
+		{
+			"id": "UJ50Y4x",
+			"reportId": "4",
+			"status": "In Realization",
+			"price": "-1",
+			"logDate": "2024-01-27T17:56:19.191Z"
+		},
+		{
+			"id": "4nYDRiq",
+			"reportId": "1",
+			"status": "Assigned",
+			"price": "1111",
+			"logDate": "2024-01-27T18:11:24.722Z"
+		},
+		{
+			"id": "Jxvjqi_",
+			"reportId": "1",
+			"status": "Assigned",
+			"price": "1000",
+			"logDate": "2024-01-27T18:12:20.842Z"
+		}
+	]
 }

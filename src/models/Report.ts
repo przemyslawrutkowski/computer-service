@@ -1,109 +1,110 @@
-import { Status } from './Status';
-import { Priority } from './Priority';
+import { Status } from './Status'
+import { Priority } from './Priority'
 
 export class Report {
-    private id: string;
-    private description: string;
-    private priority: Priority;
-    private status: Status;
-    private price?: number;
-    private startDate: Date;
-    private endDate?: Date;
-    private userId: string;
-    private servicemanId?: string;
+	private id: string
+	private description: string
+	private priority: Priority
+	private status: Status
+	private price?: number
+	private startDate: Date
+	private endDate?: Date
+	private userId: string
+	private servicemanId?: string
 
-    constructor(description: string, priority: Priority, status: Status, startDate: Date, userId: string) {
-        this.id = "";
-        this.description = description;
-        this.priority = priority;
-        this.status = status;
-        this.startDate = startDate;
-        this.userId = userId;
-    }
+	constructor(description: string, priority: Priority, status: Status, startDate: Date, userId: string) {
+		this.id = ''
+		this.description = description
+		this.priority = priority
+		this.status = status
+		this.startDate = startDate
+		this.userId = userId
+	}
 
-    static fromObject(object: any): Report {
-        const report = new Report(object.description, object.priority, object.status, new Date(object.startDate), object.userId);
-        report.setReportId(object.id);
-        report.setPrice(object.price);
-        if (object.endDate) {
-            report.setEndDate(new Date(object.endDate));
-        }
+	static fromObject(object: any): Report {
+		const report = new Report(
+			object.description,
+			object.priority,
+			object.status,
+			new Date(object.startDate),
+			object.userId
+		)
+		report.setReportId(object.id)
+		report.setPrice(object.price)
+		if (object.endDate) {
+			report.setEndDate(new Date(object.endDate))
+		}
+		if (object.servicemanId) {
+			report.setServicemanId(object.servicemanId)
+		}
 
-        return report;
-    }
+		return report
+	}
 
-    getServicemanId(){
-        return this.servicemanId;
-    }
-    setServicemanId(id: string){
-        console.log(id)
-        console.log(id)
-        console.log(id)
-        console.log(id)
-        console.log(id)
-        console.log(id)
-        console.log(id)
-        this.servicemanId = id;
-    }
+	getServicemanId() {
+		return this.servicemanId
+	}
+	setServicemanId(id: string) {
+		this.servicemanId = id
+	}
 
-    getReportId(): string {
-        return this.id;
-    }
-    
+	getReportId(): string {
+		return this.id
+	}
 
-    setReportId(id: string): void {
-        this.id = id;
-    }
+	setReportId(id: string): void {
+		this.id = id
+	}
 
-    getUserId(): string {
-        return this.userId;
-    }
+	getUserId(): string {
+		return this.userId
+	}
 
-    getDescription(): string {
-        return this.description;
-    }
+	getDescription(): string {
+		return this.description
+	}
 
-    setDescription(value: string) {
-        this.description = value;
-    }
+	setDescription(value: string) {
+		this.description = value
+	}
 
-    getPriority(): Priority {
-        return this.priority;
-    }
+	getPriority(): Priority {
+		return this.priority
+	}
 
-    setPriority(value: Priority) {
-        this.priority = value;
-    }
+	setPriority(value: Priority) {
+		this.priority = value
+	}
 
-    getStatus(): Status {
-        return this.status;
-    }
+	getStatus(): Status {
+		return this.status
+	}
 
-    setStatus(value: Status) {
-        this.status = value;
-    }
+	setStatus(value: Status) {
+		this.status = value
+	}
 
-    getPrice(): number | undefined {
-        return this.price;
-    }
+	getPrice(): number | undefined {
+		return this.price
+	}
 
-    setPrice(value: number | undefined) {
-        this.price = value;
-    }
+	setPrice(value: number | undefined) {
+		this.price = value
+	}
 
-    getStartDate(): Date {
-        return this.startDate;
-    }
+	getStartDate(): Date {
+		return this.startDate
+	}
 
-    setStartDate(value: Date) {
-        this.startDate = value;
-    }
+	setStartDate(value: Date) {
+		this.startDate = value
+	}
 
-    getEndDate(): Date | undefined {
-        return this.endDate;
-    }
+	getEndDate(): Date | undefined {
+		return this.endDate
+	}
 
-    setEndDate(value: Date | undefined) {
-        this.endDate = value;
-    }
+	setEndDate(value: Date | undefined) {
+		this.endDate = value
+	}
 }

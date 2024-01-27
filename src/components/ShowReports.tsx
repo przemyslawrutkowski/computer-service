@@ -12,65 +12,61 @@ const ShowReports = () => {
 	const [isServiceman, setIsServiceman] = useState<boolean>(false)
 	const [servicemanId, setServicemanId] = useState<number>(-1)
 
-	useEffect(() => {
-		const fetchReports = async () => {
-			try {
-				const fetchedReports = await getReports()
-				const reportInstances = fetchedReports.map((report: any) => Report.fromObject(report))
-				setReports(
-					reportInstances.filter((report: Report) =>
-						Object.entries(filters).every(([key, value]) => {
-							if (!value) return true
-							if (key === 'startDate') {
-								const startDate = report.getStartDate()
-								return startDate ? new Date(startDate) >= new Date(value.toString()) : false
+	const fetchReports = async () => {
+		try {
+			const fetchedReports = await getReports()
+			const reportInstances = fetchedReports.map((report: any) => Report.fromObject(report))
+			setReports(
+				reportInstances.filter((report: Report) =>
+					Object.entries(filters).every(([key, value]) => {
+						if (!value) return true
+						if (key === 'startDate') {
+							const startDate = report.getStartDate()
+							return startDate ? new Date(startDate) >= new Date(value.toString()) : false
+						}
+						if (key === 'endDate') {
+							const endDate = report.getEndDate()
+							if (endDate) {
+								return new Date(endDate) <= new Date(value.toString())
 							}
-							if (key === 'endDate') {
-								const endDate = report.getEndDate()
-								if (endDate) {
-									return new Date(endDate) <= new Date(value.toString())
-								}
-								return true
-							}
-							if (key === 'status') {
-								return report.getStatus().toString() === value.toString()
-							}
-							if (key === 'priority') {
-								return report.getPriority().toString() === value.toString()
-							}
-						})
-					)
+							return true
+						}
+						if (key === 'status') {
+							return report.getStatus().toString() === value.toString()
+						}
+						if (key === 'priority') {
+							return report.getPriority().toString() === value.toString()
+						}
+					})
 				)
-			} catch (error) {
-				console.error('Error fetching reports:', error)
-			}
+			)
+		} catch (error) {
+			console.error('Error fetching reports:', error)
 		}
+	}
 
+	useEffect(() => {
 		const userLocalStorage = new UserLocalStorage()
 		const userData = userLocalStorage.getUserData()
 		if (userData) {
 			setIsServiceman(userData.isServiceman || false)
 			setServicemanId(userData.userId)
 		}
-
 		fetchReports()
 	}, [filters])
 
 	const handleTakeReportClick = async (reportId: string) => {
 		try {
-			const takenreport = await getReport(reportId)
+			const takenReport = await getReport(reportId)
+			const goodReport = Report.fromObject(takenReport)
+			goodReport.setServicemanId(servicemanId.toString())
 
-			const goodreport = Report.fromObject(takenreport)
-			goodreport.setServicemanId(servicemanId.toString())
+			await updateReport(goodReport.getReportId(), goodReport)
 
-			const updatedReport = await updateReport(goodreport.getReportId(), goodreport)
-
-			console.log(updatedReport)
+			fetchReports()
 		} catch (error) {
 			console.error(error)
 		}
-
-		console.log(`Użytkownik kliknął w raport o ID ${reportId}`)
 	}
 
 	const handleFilterChange = (newFilters: Partial<Report>) => {
