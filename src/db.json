@@ -50,6 +50,17 @@
       "userId": 2,
       "servicemanId": 1,
       "endDate": "2023-11-30"
+    },
+    {
+      "id": 4,
+      "description": "Opis raportu 3f asdas dasd asd asd asda dad addasd asd asd asda dad addasd asd asd asda dad addasd asd asd asda dad ad",
+      "priority": "Normal",
+      "status": "In Realization",
+      "price": "111.7",
+      "startDate": "2023-11-30",
+      "userId": 2,
+      "servicemanId": 1,
+      "endDate": ""
     }
   ],
   "clients": [
@@ -76,6 +87,65 @@
       "email": "c@gmail.com",
       "password": "c",
       "phoneNumber": "555"
+    },
+    {
+      "firstName": "Asd",
+      "lastName": "Asd",
+      "email": "a@gmail.pl",
+      "password": "asdasd",
+      "phoneNumber": "123123213",
+      "id": "i1foE_m"
+    }
+  ],
+  "Logs": [
+    {
+      "id": 1,
+      "reportId": 2,
+      "status": "In Realization",
+      "price": "12123",
+      "logDate": "2024-01-26T22:26:45.237Z"
+    },
+    {
+      "id": 2,
+      "reportId": 1,
+      "status": "In Realization",
+      "price": "1112",
+      "logDate": "2024-01-26T22:26:58.073Z"
+    },
+    {
+      "id": 3,
+      "reportId": 4,
+      "status": "In Realization",
+      "price": "111.7",
+      "logDate": "2024-01-27T00:35:33.977Z"
+    },
+    {
+      "id": 4,
+      "reportId": 4,
+      "status": "In Realization",
+      "price": "111.7",
+      "logDate": "2024-01-27T01:00:37.534Z"
+    },
+    {
+      "id": 5,
+      "reportId": 4,
+      "status": "In Realization",
+      "price": "111.7",
+      "logDate": "2024-01-27T01:00:53.159Z"
+    },
+    {
+      "id": 6,
+      "reportId": 4,
+      "status": "In Realization",
+      "price": "111.7",
+      "logDate": "2024-01-27T01:00:57.727Z"
+    },
+    {
+      "id": 7,
+      "reportId": 4,
+      "status": "In Realization",
+      "price": "111.7",
+      "logDate": "2024-01-27T01:11:08.175Z"
     }
   ]
 }

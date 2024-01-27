@@ -1,0 +1,74 @@
+.editReport {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 250px;
+    height: 350px;
+	transform: translate(-50%, -50%);
+	background-color: rgba(0, 0, 0, 0.9);
+	border-radius: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	overflow: scroll;
+}
+
+.editReport .editDetails {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.editReport form{
+    margin: 10px;
+}
+
+.editReport div{
+    margin: 10px;
+}
+
+.editReport input,
+select {
+	margin: 10px;
+	text-align: center;
+	border: none;
+	border-radius: 20px;
+	width: 140px;
+	height: 30px;
+	font-size: 15px;
+	letter-spacing: 1px;
+	font-family: 'Poppins', sans-serif;
+}
+
+.editReport h3 {
+	letter-spacing: 2px;
+	color: bisque;
+	margin-top: 30px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.editReport .err {
+	margin-top: 5px;
+	color: rgb(234, 43, 81);
+}
+
+.editReport button {
+	text-decoration: none;
+	background: none;
+	border-radius: 20px;
+	border: 3px solid aliceblue;
+	padding: 10px;
+	font-weight: bold;
+	color: aliceblue;
+	transition: 0.4s;
+	font-size: 14px;
+	margin: 15px;
+}
+
+.editReport button:hover {
+	background: aliceblue;
+	color: black;
+	cursor: pointer;
+}

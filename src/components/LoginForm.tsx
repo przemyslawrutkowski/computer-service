@@ -1,33 +1,38 @@
-import React, { useState } from 'react';
-import { login } from '../services/AuthService';
+import React, { useState } from 'react'
+import { login } from '../services/AuthService'
+import '../styles/login.css'
 
 const LoginForm: React.FC = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+	const [email, setEmail] = useState('')
+	const [password, setPassword] = useState('')
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        try {
-            const user = await login(email, password);
-            console.log(user);
-        } catch (error) {
-            console.error(error);
-        }
-    };
+	const handleSubmit = async (e: React.FormEvent) => {
+		e.preventDefault()
+		try {
+			const user = await login(email, password)
+			console.log(user)
+		} catch (error) {
+			console.error(error)
+		}
+	}
 
-    return (
-        <form onSubmit={handleSubmit}>
-            <label>
-                Email:
-                <input type="email" value={email} onChange={e => setEmail(e.target.value)} />
-            </label>
-            <label>
-                Password:
-                <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
-            </label>
-            <button type="submit">Login</button>
-        </form>
-    );
-};
+	return (
+		<section className="login">
+			<form onSubmit={handleSubmit}>
+				<p>Computer Service</p>
+				<div>
+                <label>Email</label>
+					<input type="email" value={email} onChange={e => setEmail(e.target.value)} />
+				</div>
+				<div>
+					<label>Password</label>
+					<input type="password" value={password} onChange={e => setPassword(e.target.value)} />
+				</div>
+				<a href="/registration">Don't have account? Register me.</a>
+				<button type="submit">Login</button>
+			</form>
+		</section>
+	)
+}
 
-export default LoginForm;
+export default LoginForm
