@@ -23,7 +23,6 @@ const ReportsTable: React.FC<ReportsTableProps> = ({ reports }) => {
             </thead>
             <tbody>
                 {reports.map(report => (
-
                     <tr key={report.getReportId()}>
                         <td>{report.getReportId()}</td>
                         <td>{report.getDescription()}</td>

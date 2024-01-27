@@ -41,7 +41,7 @@ export class Report {
     }
 
     getUserId(): string {
-        return this.id;
+        return this.userId;
     }
 
     getDescription(): string {
