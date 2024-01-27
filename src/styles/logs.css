@@ -78,3 +78,7 @@ td {
 	color: black;
 	cursor: pointer;
 }
+
+.logs .delete{
+	width: 100px;
+}

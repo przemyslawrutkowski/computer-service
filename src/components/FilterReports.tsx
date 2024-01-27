@@ -22,7 +22,7 @@ const FilterReports: React.FC<FilterProps> = ({ onFilterChange }) => {
 	}
 
 	return (
-		<div className="sorts">
+	<div className="sorts">
 			<div className="box-sort">
 				<p>Status</p>
 				<select name="status" onChange={handleFilterChange}>

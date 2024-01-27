@@ -109,9 +109,3 @@ td {
 	font-size: 16px;
 	margin: 15px;
 }
-
-.reports button:hover {
-	background: aliceblue;
-	color: black;
-	cursor: pointer;
-}

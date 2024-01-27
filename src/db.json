@@ -23,10 +23,10 @@
       "description": "Opis raportu 1",
       "priority": "Normal",
       "status": "Assigned",
-      "price": 111,
-      "startDate": "2023-11-27",
+      "price": "1000",
+      "startDate": "2023-11-27T00:00:00.000Z",
       "userId": 2,
-      "servicemanId": 1,
+      "servicemanId": "1",
       "endDate": ""
     },
     {
@@ -56,11 +56,19 @@
       "description": "Opis raportu 3f asdas dasd asd asd asda dad addasd asd asd asda dad addasd asd asd asda dad addasd asd asd asda dad ad",
       "priority": "Normal",
       "status": "In Realization",
-      "price": 111.7,
+      "price": "-1",
       "startDate": "2023-11-30",
       "userId": 2,
       "servicemanId": 1,
       "endDate": ""
+    },
+    {
+      "id": "TTO42p2",
+      "description": ".editReport .err {\n\tmargin-top: 5px;\n\tcolor: rgb(234, 43, 81);\n}\nspoko jest ogoleni xd",
+      "priority": "Normal",
+      "status": "New",
+      "startDate": "2024-01-27T18:24:58.459Z",
+      "userId": "1"
     }
   ],
   "clients": [
@@ -111,6 +119,27 @@
       "status": "In Realization",
       "price": "1112",
       "logDate": "2024-01-26T22:26:58.073Z"
+    },
+    {
+      "id": "UJ50Y4x",
+      "reportId": "4",
+      "status": "In Realization",
+      "price": "-1",
+      "logDate": "2024-01-27T17:56:19.191Z"
+    },
+    {
+      "id": "4nYDRiq",
+      "reportId": "1",
+      "status": "Assigned",
+      "price": "1111",
+      "logDate": "2024-01-27T18:11:24.722Z"
+    },
+    {
+      "id": "Jxvjqi_",
+      "reportId": "1",
+      "status": "Assigned",
+      "price": "1000",
+      "logDate": "2024-01-27T18:12:20.842Z"
     }
   ]
 }

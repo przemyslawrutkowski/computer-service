@@ -2,15 +2,14 @@
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	width: 250px;
-    height: 350px;
+	width: 300px;
+	min-height: 350px;
 	transform: translate(-50%, -50%);
 	background-color: rgba(0, 0, 0, 0.9);
 	border-radius: 20px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	overflow: scroll;
 }
 
 .editReport .editDetails {
@@ -20,12 +19,12 @@
 	align-items: center;
 }
 
-.editReport form{
-    margin: 10px;
+.editReport form {
+	margin: 10px;
 }
 
-.editReport div{
-    margin: 10px;
+.editReport div {
+	margin: 10px;
 }
 
 .editReport input,
@@ -45,8 +44,8 @@ select {
 	letter-spacing: 2px;
 	color: bisque;
 	margin-top: 30px;
-    font-weight: bold;
-    font-size: 20px;
+	font-weight: bold;
+	font-size: 20px;
 }
 
 .editReport .err {
@@ -71,4 +70,27 @@ select {
 	background: aliceblue;
 	color: black;
 	cursor: pointer;
+}
+
+.editReport .exit {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+}
+
+.editReport button.exit:hover {
+	background-color: rgb(211, 168, 252);
+	border: 3px solid rgb(211, 168, 252);
+}
+
+.editReport a {
+	text-decoration: none;
+	transition: 0.3s;
+	color: aliceblue;
+	padding: 15px 5px;
+	font-size: 18px;
+}
+
+.editReport a:hover {
+	color: black;
 }

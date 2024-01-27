@@ -10,7 +10,6 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	overflow: scroll;
 }
 
 .addReport .addDetails {
@@ -79,4 +78,27 @@ select {
 	background: aliceblue;
 	color: black;
 	cursor: pointer;
+}
+
+.addReport .exit {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+}
+
+.addReport button.exit:hover {
+	background-color: rgb(211, 168, 252);
+	border: 3px solid rgb(211, 168, 252);
+}
+
+.addReport a {
+	text-decoration: none;
+	transition: 0.3s;
+	color: aliceblue;
+	padding: 15px 5px;
+	font-size: 18px;
+}
+
+.addReport a:hover {
+	color: black;
 }

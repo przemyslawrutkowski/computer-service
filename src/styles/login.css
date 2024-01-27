@@ -4,7 +4,7 @@
 	left: 50%;
 	transform: translate(-50%, -50%);
 	width: 330px;
-	height: 360px;
+	min-height: 360px;
 	border-radius: 20px;
 	background-color: rgba(0, 0, 0, 0.9);
 	display: flex;
@@ -17,8 +17,8 @@
 	padding-top: 20px;
 	margin-top: 20px;
 	font-weight: bold;
-    font-size: 20px;
-    letter-spacing: 2px;
+	font-size: 20px;
+	letter-spacing: 2px;
 }
 
 .login input {
@@ -28,7 +28,7 @@
 	width: 200px;
 	height: 30px;
 	font-size: 14px;
-    background: aliceblue;
+	background: aliceblue;
 	letter-spacing: 1px;
 	font-family: 'Poppins', sans-serif;
 }
@@ -73,12 +73,19 @@
 	font-weight: bold;
 	color: aliceblue;
 	transition: 0.4s;
-    font-size: 16px;
-    margin: 15px;
+	font-size: 16px;
+	margin: 15px;
 }
 
 .login button:hover {
 	background: aliceblue;
 	color: black;
-    cursor: pointer;
+	cursor: pointer;
+}
+
+.login .err {
+	text-align: center;
+	padding: 10px;
+	margin: 5px;
+	color: rgb(234, 43, 81);
 }

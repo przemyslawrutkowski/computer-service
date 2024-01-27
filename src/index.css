@@ -65,3 +65,36 @@ button:hover::after {
 	bottom: 0;
 	right: 0;
 }
+
+button.logout {
+	text-decoration: none;
+	background: none;
+	border-radius: 20px;
+	border: 3px solid aliceblue;
+	padding: 10px 0px;
+	font-weight: bold;
+	color: aliceblue;
+	transition: 0.4s;
+	font-size: 14px;
+	margin-bottom: 30px;
+}
+
+button.logout:hover {
+	border: 3px solid #0b9fe9;
+	cursor: pointer;
+}
+
+.logout {
+	position: absolute;
+	top: 0;
+	right: 20px;
+}
+
+.logout svg {
+	width: 20px;
+	height: 20px;
+}
+
+.logout a {
+	padding: 15px;
+}
