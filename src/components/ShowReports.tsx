@@ -12,8 +12,9 @@ const ShowReports = () => {
 	useEffect(() => {
 		const fetchReports = async () => {
 			try {
-				const fetchedReports = await getReports()
-				const reportInstances = fetchedReports.map((report: any) => Report.fromObject(report))
+				const fetchedReports = await getReports();
+				console.log(fetchedReports);
+				const reportInstances = fetchedReports.map((report: any) => Report.fromObject(report));
 				setReports(
 					reportInstances.filter((report: Report) =>
 						Object.entries(filters).every(([key, value]) => {

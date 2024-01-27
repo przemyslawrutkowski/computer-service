@@ -2,9 +2,7 @@ import { Status } from './Status';
 import { Priority } from './Priority';
 
 export class Report {
-    private static idCounter: number = 0;
-
-    private id: number;
+    private id: string;
     private description: string;
     private priority: Priority;
     private status: Status;
@@ -15,7 +13,7 @@ export class Report {
     private servicemanId?: number;
 
     constructor(description: string, priority: Priority, status: Status, startDate: Date, userId: number) {
-        this.id = Report.idCounter++;
+        this.id = "";
         this.description = description;
         this.priority = priority;
         this.status = status;
@@ -25,7 +23,8 @@ export class Report {
 
     static fromObject(object: any): Report {
         const report = new Report(object.description, object.priority, object.status, new Date(object.startDate), object.userId);
-
+        report.setReportId(object.id);
+        report.setPrice(object.price);
         if (object.endDate) {
             report.setEndDate(new Date(object.endDate));
         }
@@ -33,11 +32,15 @@ export class Report {
         return report;
     }
 
-    getReportId(): number {
+    getReportId(): string {
         return this.id;
     }
 
-    getUserId(): number {
+    setReportId(id: string): void {
+        this.id = id;
+    }
+
+    getUserId(): string {
         return this.id;
     }
 

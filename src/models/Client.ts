@@ -6,8 +6,8 @@ export class Client extends User {
         super(id, firstName, lastName, email, password, phoneNumber);
     }
 
-    static fromJson(object: any): Client {
-        return new Client(object.id, object.firstName, object.lastName, object.email, object.password, object.phoneNumber);
+    static fromJson(json: any): Client {
+        return new Client(json.id, json.firstName, json.lastName, json.email, json.password, json.phoneNumber);
     }
 
     isServiceman(): boolean {
