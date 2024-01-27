@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { login } from '../services/AuthService'
 import { useNavigate } from "react-router-dom";
+import { User } from '../models/User';
+import { UserLocalStorage} from '../services/UserLocalStorage'
 import '../styles/login.css'
 
 const LoginForm: React.FC = () => {
@@ -13,7 +15,9 @@ const LoginForm: React.FC = () => {
 		e.preventDefault()
 		try {
 			const user = await login(email, password)
-			console.log(user)
+
+    		const localStorage = new UserLocalStorage();
+			localStorage.setUserId(user.getId());
 			navigation('/reports')
 		} catch (error) {
 			console.error(error)
