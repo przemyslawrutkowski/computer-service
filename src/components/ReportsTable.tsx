@@ -42,7 +42,7 @@ const ReportsTable: React.FC<ReportsTableProps> = ({ reports, isServiceman, serv
 									return endDate ? new Date(endDate).toLocaleString('pl-PL') : 'Brak daty'
 								})()}
 							</td>
-							<td>{servicemanId.toString()}</td>
+							<td>{report.getUserId()}</td>
 
 							{isServiceman && (
 								<td>

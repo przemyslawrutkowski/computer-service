@@ -3,7 +3,7 @@ export class UserLocalStorage {
   
     constructor() {}
   
-    getUserData(): { userId: number; isServiceman: boolean } | null {
+    getUserData(): { userId: string; isServiceman: boolean } | null {
       const userData = localStorage.getItem(this.storageKey);
       if (userData) {
         return JSON.parse(userData);
@@ -11,7 +11,7 @@ export class UserLocalStorage {
       return null;
     }
   
-    setUserData(userId: number, isServiceman: boolean): void {
+    setUserData(userId: string, isServiceman: boolean): void {
       const userData = JSON.stringify({ userId, isServiceman });
       localStorage.setItem(this.storageKey, userData);
     }

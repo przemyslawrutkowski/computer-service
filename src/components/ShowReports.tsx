@@ -50,7 +50,7 @@ const ShowReports = () => {
 		const userData = userLocalStorage.getUserData()
 		if (userData) {
 			setIsServiceman(userData.isServiceman || false)
-			setServicemanId(userData.userId)
+			setServicemanId(parseInt(userData.userId,10))
 		}
 		fetchReports()
 	}, [filters])

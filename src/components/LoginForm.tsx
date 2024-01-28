@@ -16,7 +16,9 @@ const LoginForm: React.FC = () => {
 		try {
 			const user = await login(email, password)
 			const localStorage = new UserLocalStorage()
-			localStorage.setUserData(parseInt(user.getId(), 10), user.isServiceman())
+			console.log(user.getId());
+			localStorage.setUserData(user.getId(), user.isServiceman())
+			console.log(localStorage.getUserData()?.userId);
 			navigation('/reports')
 		} catch (error) {
 			let newErrors: RegistrationErrors = {}

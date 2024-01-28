@@ -42,13 +42,14 @@ const AddReport = () => {
 			if (validateForm()) {
 				const local = new UserLocalStorage()
 				const userdata = local.getUserData()
+				console.log(userdata?.userId)
 				if (userdata != null) {
 					const repo = new Report(
 						report.description,
 						report.priority,
 						Status.new,
 						new Date(),
-						userdata.userId.toString()
+						userdata.userId
 					)
 					await createReport(repo)
 				}
