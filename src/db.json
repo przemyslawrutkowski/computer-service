@@ -17,7 +17,32 @@
       "phoneNumber": "998"
     }
   ],
-  "reports": [],
+  "reports": [
+    {
+      "id": 1,
+      "description": "Kompleksowa wymiana dysku twardego, aktualizacja systemu operacyjnego do najnowszej wersji.",
+      "priority": "Normal",
+      "status": "New",
+      "startDate": "2024-01-18T19:30:04.434Z",
+      "userId": "1"
+    },
+    {
+      "id": 2,
+      "description": "Naprawa PC: Czyszczenie, upgrade RAM, optymalizacja OS, testy.\"",
+      "priority": "Normal",
+      "status": "New",
+      "startDate": "2024-01-14T19:31:01.896Z",
+      "userId": "1"
+    },
+    {
+      "id": 3,
+      "description": "Serwis komputera: Usunięcie wirusów, update SSD, konserwacja chłodzenia.",
+      "priority": "High",
+      "status": "New",
+      "startDate": "2024-01-27T19:31:24.793Z",
+      "userId": "1"
+    }
+  ],
   "clients": [
     {
       "firstName": "John",
@@ -26,15 +51,15 @@
       "password": "a",
       "phoneNumber": "997",
       "id": "1"
-    },
-    {
-      "firstName": "Cos",
-      "lastName": "Ktos",
-      "email": "b@gmail.com",
-      "password": "bbbbbb",
-      "phoneNumber": "999999999",
-      "id": "LKp0OXg"
     }
   ],
-  "Logs": []
+  "Logs": [
+    {
+      "id": 1,
+      "reportId": 2,
+      "status": "New",
+      "price": "100",
+      "logDate": "2024-01-28T18:31:41.494Z"
+    }
+  ]
 }
