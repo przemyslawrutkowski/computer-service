@@ -4,6 +4,8 @@ import { RegistrationErrors } from '../models/interfaces/RegistrationErrors'
 import { Client } from '../models/Client'
 import '../styles/registration.css'
 import { useNavigate } from 'react-router-dom'
+import Header from '../reusableComponents/header'
+import Link from '../reusableComponents/link'
 
 const RegistrationForm: React.FC = () => {
 	const [firstName, setFirstName] = useState('')
@@ -55,7 +57,7 @@ const RegistrationForm: React.FC = () => {
 		e.preventDefault()
 		if (validateForm()) {
 			try {
-				const newClient = new Client("0", firstName, lastName, email, password, phoneNumber)
+				const newClient = new Client('0', firstName, lastName, email, password, phoneNumber)
 				const newUser = await register(newClient)
 				console.log(newUser)
 				navigation('/')
@@ -68,8 +70,7 @@ const RegistrationForm: React.FC = () => {
 	return (
 		<section className="register">
 			<form onSubmit={handleSubmit}>
-				<p>Computer Service</p>
-
+				<Header content={'Computer Service'} />
 				<div>
 					<label>Email</label>
 					<input type="email" value={email} onChange={e => setEmail(e.target.value)} />
@@ -99,7 +100,7 @@ const RegistrationForm: React.FC = () => {
 					<input type="password" value={password} onChange={e => setPassword(e.target.value)} />
 					{errors.password && <div className="err">{errors.password}</div>}
 				</div>
-				<a href="/">Have an account? Sign in.</a>
+				<Link content={'Have an account? Sign in.'} link={''} />
 				<button type="submit">Register</button>
 			</form>
 		</section>

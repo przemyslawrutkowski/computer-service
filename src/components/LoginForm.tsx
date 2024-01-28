@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom'
 import { RegistrationErrors } from '../models/interfaces/RegistrationErrors'
 import { UserLocalStorage } from '../services/UserLocalStorage'
 import '../styles/login.css'
+import Header from '../reusableComponents/header'
+import Link from '../reusableComponents/link'
 
 const LoginForm: React.FC = () => {
 	const [email, setEmail] = useState('')
@@ -30,7 +32,7 @@ const LoginForm: React.FC = () => {
 	return (
 		<section className="login">
 			<form onSubmit={handleSubmit}>
-				<p>Computer Service</p>
+			<Header content={'Computer Service'} />
 				<div>
 					<label>Email</label>
 					<input type="email" value={email} onChange={e => setEmail(e.target.value)} />
@@ -40,7 +42,7 @@ const LoginForm: React.FC = () => {
 					<input type="password" value={password} onChange={e => setPassword(e.target.value)} />
 				</div>
 				{errors.email && <div className="err">{errors.email}</div>}
-				<a href="/registration">Don't have account? Register me.</a>
+				<Link content={'Don\'t have account? Register me.'} link={'registration'} />
 				<button type="submit">Login</button>
 			</form>
 		</section>

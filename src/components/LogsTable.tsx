@@ -1,6 +1,7 @@
 import React from 'react'
 import { Log } from '../models/Log'
 import { deleteLog } from '../services/LogService'
+import TableHeaders from '../reusableComponents/tableHeaders'
 
 interface LogTableProps {
 	logs: Log[]
@@ -8,7 +9,7 @@ interface LogTableProps {
 	onDelete: () => void
 }
 
-const LogsTable: React.FC<LogTableProps> = ({ logs,isServiceman, onDelete }) => {
+const LogsTable: React.FC<LogTableProps> = ({ logs, isServiceman, onDelete }) => {
 	const handleDelete = async (logId: string) => {
 		try {
 			await deleteLog(logId)
@@ -20,38 +21,30 @@ const LogsTable: React.FC<LogTableProps> = ({ logs,isServiceman, onDelete }) => 
 
 	return (
 		<table border={1}>
-			<thead>
-				<tr>
-					<th>ID</th>
-					<th>Report ID</th>
-					<th>Status</th>
-					<th>Price</th>
-					<th>Data logu</th>
-					
-					{isServiceman && (
-						<th>Delete</th>
-					)}
-				</tr>
-			</thead>
+			<TableHeaders titles={['ID', 'Report ID', 'Status', 'Price', 'Log Date', 'Delete']} optionalLast={isServiceman} />
 			<tbody>
-				{logs.map(log => (
-					<tr key={log.getId()}>
-						<td>{log.getId()}</td>
-						<td>{log.getReportId()}</td>
-						<td>{log.getStatus()}</td>
-						<td>{log.getPrice()}</td>
-						<td>{new Date(log.getLogDate()).toLocaleString('pl-PL')}</td>
-						
-						{isServiceman && (
-
-							<td>
-								<button className="delete" onClick={() => handleDelete(log.getId())}>
-									Delete
-								</button>
-							</td>
-						)}
+				{logs.length > 0 ? (
+					logs.map(log => (
+						<tr key={log.getId()}>
+							<td>{log.getId()}</td>
+							<td>{log.getReportId()}</td>
+							<td>{log.getStatus()}</td>
+							<td>{log.getPrice()}</td>
+							<td>{new Date(log.getLogDate()).toLocaleString('pl-PL')}</td>
+							{isServiceman && (
+								<td>
+									<button className="delete" onClick={() => handleDelete(log.getId())}>
+										Delete
+									</button>
+								</td>
+							)}
+						</tr>
+					))
+				) : (
+					<tr>
+						<td colSpan={isServiceman ? 6 : 5}>Log list is empty</td>
 					</tr>
-				))}
+				)}
 			</tbody>
 		</table>
 	)

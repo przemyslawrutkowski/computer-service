@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Report } from '../models/Report'
+import TableHeaders from '../reusableComponents/tableHeaders'
+import Header from '../reusableComponents/header'
 
 interface ReportsTableProps {
 	reports: Report[]
@@ -11,54 +13,54 @@ interface ReportsTableProps {
 const ReportsTable: React.FC<ReportsTableProps> = ({ reports, isServiceman, servicemanId, handleTakeReportClick }) => {
 	return (
 		<table border={1}>
-			<thead>
-				<tr>
-					<th>ID</th>
-					<th>Description</th>
-					<th>Priority</th>
-					<th>Status</th>
-					<th>Price</th>
-					<th>Start Date</th>
-					<th>End Date</th>
-					<th>User ID</th>
-					{isServiceman && <th>Edit</th>}
-				</tr>
-			</thead>
+			<TableHeaders
+				titles={['ID', 'Description', 'Priority', 'Status', 'Price', 'Start Date', 'End Date', 'User ID', 'Action']}
+				optionalLast={isServiceman}
+			/>
 			<tbody>
-				{reports.map(report => {
-					// console.log(`Serviceman ID for report ${report.getReportId()}:`, report)
-
-					return (
-						<tr key={report.getReportId()}>
-							<td>{report.getReportId()}</td>
-							<td>{report.getDescription()}</td>
-							<td>{report.getPriority()}</td>
-							<td>{report.getStatus()}</td>
-							<td>{report.getPrice() ?? 'Brak'}</td>
-							<td>{new Date(report.getStartDate()).toLocaleString('pl-PL')}</td>
-							<td>
-								{(() => {
-									const endDate = report.getEndDate()
-									return endDate ? new Date(endDate).toLocaleString('pl-PL') : 'Brak daty'
-								})()}
-							</td>
-							<td>{report.getUserId()}</td>
-
-							{isServiceman && (
+				{reports.length > 0 ? (
+					reports.map(report => {
+						return (
+							<tr key={report.getReportId()}>
+								<td>{report.getReportId()}</td>
+								<td>{report.getDescription()}</td>
+								<td>{report.getPriority()}</td>
+								<td>{report.getStatus()}</td>
+								<td>{report.getPrice() ?? 'Brak'}</td>
+								<td>{new Date(report.getStartDate()).toLocaleString('pl-PL')}</td>
 								<td>
-									{report.getServicemanId() === servicemanId.toString() && (
-										<button>
-											<Link to={`/edit/${report.getReportId()}`}>Edit</Link>
-										</button>
-									)}
-									{(!report.getServicemanId() || report.getServicemanId() !== servicemanId.toString()) && (
-										<button onClick={() => handleTakeReportClick(report.getReportId())}>Take report</button>
-									)}
+									{(() => {
+										const endDate = report.getEndDate()
+										return endDate ? new Date(endDate).toLocaleString('pl-PL') : 'Brak daty'
+									})()}
 								</td>
-							)}
-						</tr>
-					)
-				})}
+								<td>{report.getUserId()}</td>
+
+								{isServiceman && (
+									<td>
+										{report.getServicemanId() === servicemanId.toString() && (
+											<button>
+												<Link to={`/edit/${report.getReportId()}`}>Edit</Link>
+											</button>
+										)}
+
+										{report.getServicemanId() && report.getServicemanId() !== servicemanId.toString() && (
+											<Header content="Taken" />
+										)}
+
+										{!report.getServicemanId() && (
+											<button onClick={() => handleTakeReportClick(report.getReportId())}>Take report</button>
+										)}
+									</td>
+								)}
+							</tr>
+						)
+					})
+				) : (
+					<tr>
+						<td colSpan={isServiceman ? 9 : 8}>Report list is empty</td>
+					</tr>
+				)}
 			</tbody>
 		</table>
 	)
