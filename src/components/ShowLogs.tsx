@@ -2,10 +2,12 @@ import { useEffect, useState } from 'react'
 import { getLogs } from '../services/LogService'
 import { Log } from '../models/Log'
 import LogsTable from './LogsTable'
+import { UserLocalStorage } from '../services/UserLocalStorage'
 import '../styles/logs.css'
 
 const ShowLogs = () => {
 	const [logs, setLogs] = useState<Log[]>([])
+	const [isServiceman, setIsServiceman] = useState<boolean>(false)
 
 	const fetchLogs = async () => {
 		try {
@@ -18,6 +20,11 @@ const ShowLogs = () => {
 	}
 
 	useEffect(() => {
+		const userLocalStorage = new UserLocalStorage()
+		const userData = userLocalStorage.getUserData()
+		if (userData) {
+			setIsServiceman(userData.isServiceman || false)
+		}
 		fetchLogs()
 	}, [])
 
@@ -25,7 +32,7 @@ const ShowLogs = () => {
 		<>
 			<section className="logs">
 				<h2>Logs List</h2>
-				<LogsTable logs={logs} onDelete={fetchLogs} />
+				<LogsTable logs={logs} isServiceman={isServiceman} onDelete={fetchLogs} />
 				<button className="exit">
 					<a href="/reports">X</a>
 				</button>

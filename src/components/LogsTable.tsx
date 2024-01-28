@@ -4,10 +4,11 @@ import { deleteLog } from '../services/LogService'
 
 interface LogTableProps {
 	logs: Log[]
+	isServiceman: Boolean
 	onDelete: () => void
 }
 
-const LogsTable: React.FC<LogTableProps> = ({ logs, onDelete }) => {
+const LogsTable: React.FC<LogTableProps> = ({ logs,isServiceman, onDelete }) => {
 	const handleDelete = async (logId: string) => {
 		try {
 			await deleteLog(logId)
@@ -26,7 +27,10 @@ const LogsTable: React.FC<LogTableProps> = ({ logs, onDelete }) => {
 					<th>Status</th>
 					<th>Price</th>
 					<th>Data logu</th>
-					<th>Delete</th>
+					
+					{isServiceman && (
+						<th>Delete</th>
+					)}
 				</tr>
 			</thead>
 			<tbody>
@@ -37,11 +41,15 @@ const LogsTable: React.FC<LogTableProps> = ({ logs, onDelete }) => {
 						<td>{log.getStatus()}</td>
 						<td>{log.getPrice()}</td>
 						<td>{new Date(log.getLogDate()).toLocaleString('pl-PL')}</td>
-						<td>
-							<button className="delete" onClick={() => handleDelete(log.getId())}>
-								Delete
-							</button>
-						</td>
+						
+						{isServiceman && (
+
+							<td>
+								<button className="delete" onClick={() => handleDelete(log.getId())}>
+									Delete
+								</button>
+							</td>
+						)}
 					</tr>
 				))}
 			</tbody>
