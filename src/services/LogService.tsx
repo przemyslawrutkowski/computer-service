@@ -98,3 +98,25 @@ export const deleteLog = async (logId: string): Promise<void> => {
     throw error;
   }
 };
+
+export const updateLog = async (logId: string, updatedData: any) => {
+  try {
+    const response = await fetch(`${LOGS_API_URL}/${logId}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(updatedData),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Failed to update report with ID ${logId}`);
+    }
+
+    const updatedLog = await response.json();
+    return updatedLog;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};

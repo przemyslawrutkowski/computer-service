@@ -11,6 +11,7 @@
 	max-height: 85vh;
 	min-width: 80vw;
 	overflow-y: scroll;
+	z-index: 10;
 }
 
 .reports .sorts {

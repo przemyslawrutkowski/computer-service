@@ -7,6 +7,7 @@ import LogoutBtn from '../reusableComponents/logoutBtn'
 import { UserLocalStorage } from '../services/UserLocalStorage'
 import '../styles/reports.css'
 import Header from '../reusableComponents/header'
+import ShowNotifications from './ShowNotifications'
 
 const ShowReports = () => {
 	const [reports, setReports] = useState<InstanceType<typeof Report>[]>([])
@@ -93,6 +94,7 @@ const ShowReports = () => {
 					<a href="/showlogs">Show Logs</a>
 				</button>
 			</section>
+			<ShowNotifications/>
 			<LogoutBtn />
 		</>
 	)

@@ -2,8 +2,6 @@ const REPORTS_API_URL = 'http://localhost:3000/reports';
 import { Status } from "../models/Status";
 import { UserLocalStorage } from "./UserLocalStorage";
 
-
-
 export const getReports = async () => {
   try {
     const userLocalStorage = new UserLocalStorage();

@@ -1,65 +1,85 @@
 {
-  "servicemen": [
-    {
-      "id": "1",
-      "firstName": "Jenny",
-      "lastName": "White",
-      "email": "f@gmail.com",
-      "password": "f",
-      "phoneNumber": "999"
-    },
-    {
-      "id": "2",
-      "firstName": "Conor",
-      "lastName": "McGregor",
-      "email": "h@gmail.com",
-      "password": "h",
-      "phoneNumber": "998"
-    }
-  ],
-  "reports": [
-    {
-      "id": 1,
-      "description": "Kompleksowa wymiana dysku twardego, aktualizacja systemu operacyjnego do najnowszej wersji.",
-      "priority": "Normal",
-      "status": "New",
-      "startDate": "2024-01-18T19:30:04.434Z",
-      "userId": "1"
-    },
-    {
-      "id": 2,
-      "description": "Naprawa PC: Czyszczenie, upgrade RAM, optymalizacja OS, testy.\"",
-      "priority": "Normal",
-      "status": "New",
-      "startDate": "2024-01-14T19:31:01.896Z",
-      "userId": "1"
-    },
-    {
-      "id": 3,
-      "description": "Serwis komputera: Usunięcie wirusów, update SSD, konserwacja chłodzenia.",
-      "priority": "High",
-      "status": "New",
-      "startDate": "2024-01-27T19:31:24.793Z",
-      "userId": "1"
-    }
-  ],
-  "clients": [
-    {
-      "firstName": "John",
-      "lastName": "Doe",
-      "email": "a@gmail.com",
-      "password": "a",
-      "phoneNumber": "997",
-      "id": "1"
-    }
-  ],
-  "Logs": [
-    {
-      "id": 1,
-      "reportId": 2,
-      "status": "New",
-      "price": "100",
-      "logDate": "2024-01-28T18:31:41.494Z"
-    }
-  ]
+	"servicemen": [
+		{
+			"id": "1",
+			"firstName": "Jenny",
+			"lastName": "White",
+			"email": "f@gmail.com",
+			"password": "f",
+			"phoneNumber": "999"
+		},
+		{
+			"id": "2",
+			"firstName": "Conor",
+			"lastName": "McGregor",
+			"email": "h@gmail.com",
+			"password": "h",
+			"phoneNumber": "998"
+		}
+	],
+	"reports": [
+		{
+			"id": 1,
+			"description": "Kompleksowa wymiana dysku twardego, aktualizacja systemu operacyjnego do najnowszej wersji.",
+			"priority": "Normal",
+			"status": "In Realization",
+			"startDate": "2024-01-18T19:30:04.434Z",
+			"userId": "10",
+			"endDate": ""
+		},
+		{
+			"id": 2,
+			"description": "Naprawa PC: Czyszczenie, upgrade RAM, optymalizacja OS, testy.\"",
+			"priority": "Normal",
+			"status": "Solved",
+			"startDate": "2024-01-14T19:31:01.896Z",
+			"userId": "10"
+		},
+		{
+			"id": 3,
+			"description": "Serwis komputera: Usunięcie wirusów, update SSD, konserwacja chłodzenia.",
+			"priority": "High",
+			"status": "Solved",
+			"startDate": "2024-01-27T19:31:24.793Z",
+			"userId": "10",
+			"servicemanId": "2"
+		},
+		{
+			"id": 4,
+			"description": "to jest nowy jakis report i jest git git no wez zapodaj cos ",
+			"priority": "Normal",
+			"status": "New",
+			"startDate": "2024-01-30T08:21:04.908Z",
+			"userId": "10",
+			"endDate": ""
+		}
+	],
+	"clients": [
+		{
+			"firstName": "John",
+			"lastName": "Doe",
+			"email": "a@gmail.com",
+			"password": "a",
+			"phoneNumber": "997",
+			"id": "10"
+		},
+		{
+			"firstName": "Asd",
+			"lastName": "Asd",
+			"email": "asd@gmail.com",
+			"password": "asdasd",
+			"phoneNumber": "123123123",
+			"id": "KMp9Xxs"
+		}
+	],
+	"Logs": [
+		{
+			"id": 1,
+			"reportId": 2,
+			"status": "New",
+			"price": "100",
+			"logDate": "2024-01-28T18:31:41.494Z",
+			"preRead": true
+		}
+	]
 }

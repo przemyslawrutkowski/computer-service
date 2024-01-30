@@ -66,7 +66,7 @@ const EditReport = () => {
 				if (reportid) {
 					await updateReport(reportid, report)
 					console.log(currentReport.startDate.toString())
-					const log = new Log(currentReport.id, report.status, report.price, new Date())
+					const log = new Log(currentReport.id, report.status, report.price, new Date(), false)
 					addLog(log)
 					navigate('/reports')
 				}
